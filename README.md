@@ -122,7 +122,7 @@ To run the scripts in this project, follow these steps:
     ```
     python -m venv .venv
     source .venv/bin/activate  # On Windows: venv\Scripts\activate
-    pip install -r requirements.txt
+    pip install -r requirements_py3.10
     ```
 
 2. Running the Main Script
