@@ -119,17 +119,17 @@ The root directory of the project contains the following key files and directori
 ## Running Files
 To run the scripts in this project, follow these steps:
 1. Setup the Environment
-```
-python -m venv .venv
-source .venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
+    ```
+    python -m venv .venv
+    source .venv/bin/activate  # On Windows: venv\Scripts\activate
+    pip install -r requirements.txt
+    ```
 
 2. Running the Main Script
 The churn_library.py script contains the main pipeline of the project, including data import, EDA, feature engineering, and model training. To run the script:
-```
-python churn_library.py
-```
+    ```
+    python churn_library.py
+    ```
 When you run this script, the following will happen:
 
 * The data will be imported from data/bank_data.csv.
@@ -140,8 +140,8 @@ When you run this script, the following will happen:
 * ROC curves and feature importance plots will be saved in the images/results directory.
 
 3. Running Tests
-The churn_script_logging_and_tests.py script contains unit tests to ensure that all functions in the main script are working correctly. Run the tests as follows:
-```
-python churn_script_logging_and_tests.py
-```
+    The churn_script_logging_and_tests.py script contains unit tests to ensure that all functions in the main script are working correctly. Run the tests as follows:
+    ```
+    python churn_script_logging_and_tests.py
+    ```
 This will execute the unit tests, and the results will be logged in logs/churn_library.log.
