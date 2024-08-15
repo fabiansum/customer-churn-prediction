@@ -1,0 +1,14 @@
+__main__ - INFO - Testing import_data: SUCCESS
+root - INFO - Performing EDA...
+root - INFO - Successfully performed eda and saved figures to images folder.
+__main__ - INFO - Testing perform_eda: SUCCESS
+__main__ - INFO - Testing perform_eda: All expected files were successfully created.
+__main__ - INFO - Testing encoder_helper: SUCCESS
+root - INFO - Performing feature engineering...
+root - INFO - Successfully performed feature engineering.
+__main__ - INFO - Testing perform_feature_engineering: SUCCESS
+root - INFO - Performing feature engineering...
+root - INFO - Successfully performed feature engineering.
+root - INFO - Training and storing model results...
+root - INFO - Succesfully trained and stored model results.
+__main__ - INFO - Testing train_models: SUCCESS
