@@ -25,7 +25,6 @@ TEST_RESULTS_DIR = os.path.join(OUTPUT_DIR, 'test_results')
 if not os.path.exists('./logs'):
     os.makedirs('./logs')
 
-logger = logging.getLogger(__name__)
 logging.basicConfig(
     filename='./logs/churn_library.log',
     level=logging.INFO,
@@ -39,16 +38,16 @@ def test_import(import_data):
     '''
     try:
         df = import_data("./data/test_data.csv")
-        logger.info("Testing import_data: SUCCESS")
+        cl.logger.info("Testing import_data: SUCCESS")
     except FileNotFoundError as err:
-        logger.error("Testing import_eda: The file wasn't found")
+        cl.logger.error("Testing import_eda: The file wasn't found")
         raise err
 
     try:
         assert df.shape[0] > 0
         assert df.shape[1] > 0
     except AssertionError as err:
-        logger.error(
+        cl.logger.error(
             "Testing import_data: The file doesn't appear to have rows and columns")
         raise err
 
@@ -66,16 +65,16 @@ def test_eda(perform_eda):
                 if os.path.isfile(file_path):
                     os.unlink(file_path)
             except Exception as e:
-                logger.error(
+                cl.logger.error(
                     "Failed to clean up test directory: %s. Error: %s", file_path, e)
 
     # Import data and run perform_eda
     try:
         df = cl.import_data("./data/test_data.csv")
         perform_eda(df, TEST_EDA_DIR)
-        logger.info("Testing perform_eda: SUCCESS")
+        cl.logger.info("Testing perform_eda: SUCCESS")
     except Exception as err:
-        logger.error("Testing perform_eda: FAILED with error: {err}")
+        cl.logger.error("Testing perform_eda: FAILED with error: {err}")
         raise err
 
     # Verify the expected output files are created
@@ -116,11 +115,11 @@ def test_eda(perform_eda):
                 TEST_EDA_DIR, f))]
 
     if missing_files:
-        logger.error(
+        cl.logger.error(
             "Testing perform_eda: The following expected files were not found: %s", missing_files)
         raise FileNotFoundError(f"Expected files not found: {missing_files}")
     else:
-        logger.info(
+        cl.logger.info(
             "Testing perform_eda: All expected files were successfully created.")
 
 
@@ -154,9 +153,9 @@ def test_encoder_helper(encoder_helper):
             assert df_test[new_column_name].isnull().sum(
             ) == 0, f"{new_column_name} contains null values"
 
-        logger.info("Testing encoder_helper: SUCCESS")
+        cl.logger.info("Testing encoder_helper: SUCCESS")
     except AssertionError as err:
-        logger.error("Testing encoder_helper: FAILED with error: %s", err)
+        cl.logger.error("Testing encoder_helper: FAILED with error: %s", err)
         raise err
 
 
@@ -205,9 +204,9 @@ def test_perform_feature_engineering(perform_feature_engineering):
         assert len(
             X_test) == test_size, f"Expected X_test length: {test_size}, got {len(X_test)}"
 
-        logger.info("Testing perform_feature_engineering: SUCCESS")
+        cl.logger.info("Testing perform_feature_engineering: SUCCESS")
     except AssertionError as err:
-        logger.error(
+        cl.logger.error(
             "Testing perform_feature_engineering: FAILED with error: %s", err)
         raise err
 
@@ -257,9 +256,9 @@ def test_train_models(train_models):
         assert os.path.exists(
             './models/test_logistic_model.pkl'), "Test Logistic Regression model was not saved"
 
-        logger.info("Testing train_models: SUCCESS")
+        cl.logger.info("Testing train_models: SUCCESS")
     except AssertionError as err:
-        logger.error("Testing train_models: FAILED with error: %s", err)
+        cl.logger.error("Testing train_models: FAILED with error: %s", err)
         raise err
 
 

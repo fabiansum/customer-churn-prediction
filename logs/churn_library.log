@@ -1,14 +1,14 @@
-__main__ - INFO - Testing import_data: SUCCESS
-root - INFO - Performing EDA...
-root - INFO - Successfully performed eda and saved figures to images folder.
-__main__ - INFO - Testing perform_eda: SUCCESS
-__main__ - INFO - Testing perform_eda: All expected files were successfully created.
-__main__ - INFO - Testing encoder_helper: SUCCESS
-root - INFO - Performing feature engineering...
-root - INFO - Successfully performed feature engineering.
-__main__ - INFO - Testing perform_feature_engineering: SUCCESS
-root - INFO - Performing feature engineering...
-root - INFO - Successfully performed feature engineering.
-root - INFO - Training and storing model results...
-root - INFO - Succesfully trained and stored model results.
-__main__ - INFO - Testing train_models: SUCCESS
+churn_library - INFO - Testing import_data: SUCCESS
+churn_library - INFO - Performing EDA...
+churn_library - INFO - Successfully performed eda and saved figures to images folder.
+churn_library - INFO - Testing perform_eda: SUCCESS
+churn_library - INFO - Testing perform_eda: All expected files were successfully created.
+churn_library - INFO - Testing encoder_helper: SUCCESS
+churn_library - INFO - Performing feature engineering...
+churn_library - INFO - Successfully performed feature engineering.
+churn_library - INFO - Testing perform_feature_engineering: SUCCESS
+churn_library - INFO - Performing feature engineering...
+churn_library - INFO - Successfully performed feature engineering.
+churn_library - INFO - Training and storing model results...
+churn_library - INFO - Succesfully trained and stored model results.
+churn_library - INFO - Testing train_models: SUCCESS

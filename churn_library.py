@@ -28,6 +28,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
 
+logger = logging.getLogger(__name__)
 
 os.environ['QT_QPA_PLATFORM'] = 'offscreen'
 
@@ -71,7 +72,7 @@ def perform_eda(df, output_dir=None):
     if output_dir is None:
         output_dir = EDA_DIR
 
-    logging.info("Performing EDA...")
+    logger.info("Performing EDA...")
 
     cat_columns = [
         'Gender',
@@ -163,7 +164,7 @@ def perform_eda(df, output_dir=None):
     plt.title('Correlation Heatmap')
     plt.savefig(f'{output_dir}/heatmap_correlation.png')
     plt.close()
-    logging.info(
+    logger.info(
         "Successfully performed eda and saved figures to images folder.")
 
 
@@ -203,7 +204,7 @@ def perform_feature_engineering(df, response='Churn'):
               y_train: y training data
               y_test: y testing data
     '''
-    logging.info("Performing feature engineering...")
+    logger.info("Performing feature engineering...")
     keep_cols = [
         'Customer_Age', 'Dependent_count', 'Months_on_book',
         'Total_Relationship_Count', 'Months_Inactive_12_mon',
@@ -229,7 +230,7 @@ def perform_feature_engineering(df, response='Churn'):
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.3, random_state=42)
-    logging.info("Successfully performed feature engineering.")
+    logger.info("Successfully performed feature engineering.")
 
     return X_train, X_test, y_train, y_test
 
@@ -277,7 +278,7 @@ def classification_report_image(y_train,
     output:
              None
     '''
-    logging.info(
+    logger.info(
         "Producing classification report for training and testing results...")
     # Define model names and their corresponding predictions
     models = [
@@ -307,7 +308,7 @@ def classification_report_image(y_train,
             y_test_pred,
             f'{model_name} Test',
             f'{RESULTS_DIR}/{filename}_test.png')
-    logging.info(
+    logger.info(
         "Successfully produced classification report for training and testing results.")
 
 
@@ -322,7 +323,7 @@ def feature_importance_plot(model, X_data, output_pth):
     output:
              None
     '''
-    logging.info(
+    logger.info(
         "Creating and storing the feature importances in %s", output_pth)
     importances = model.feature_importances_
 
@@ -354,7 +355,7 @@ def feature_importance_plot(model, X_data, output_pth):
 
     # Close the plot to free memory
     plt.close()
-    logging.info(
+    logger.info(
         "Successfully created and stored the feature importances in %s",
         output_pth)
     return None
@@ -384,7 +385,7 @@ def train_models(
               y_test_preds_lr: test predictions from logistic regression
               y_test_preds_rf: test predictions from random forest
     '''
-    logging.info("Training and storing model results...")
+    logger.info("Training and storing model results...")
 
     # Ensure the output directory exists
     os.makedirs(output_dir, exist_ok=True)
@@ -426,7 +427,7 @@ def train_models(
     joblib.dump(cv_rfc.best_estimator_,
                 f'./models/{model_prefix}rfc_model.pkl')
     joblib.dump(lrc, f'./models/{model_prefix}logistic_model.pkl')
-    logging.info("Succesfully trained and stored model results.")
+    logger.info("Succesfully trained and stored model results.")
 
     # ROC plot
     # Increase the width to make it more rectangular
