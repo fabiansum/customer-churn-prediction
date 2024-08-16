@@ -12,6 +12,9 @@ Functions:
 - train_models: Trains models, saves them, and generates performance metrics.
 - classification_report_image: Creates and saves classification reports as images.
 - feature_importance_plot: Generates and saves feature importance plots.
+
+Author: Fabian S.
+Date: 2024-08-15
 """
 
 import os

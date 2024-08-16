@@ -11,6 +11,9 @@ Functions:
 - test_encoder_helper: Checks proper encoding of categorical features.
 - test_perform_feature_engineering: Validates train/test split and data preparation.
 - test_train_models: Confirms models are trained, predictions are made, and models are saved.
+
+Author: Fabian S.
+Date: 2024-08-15
 """
 
 import os
@@ -34,7 +37,7 @@ logging.basicConfig(
 
 def test_import(import_data):
     '''
-    test data import - this example is completed for you to assist with the other test functions
+    test data import
     '''
     try:
         df = import_data("./data/test_data.csv")
